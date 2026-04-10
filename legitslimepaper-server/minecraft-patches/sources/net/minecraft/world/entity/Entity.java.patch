@@ -1,0 +1,20 @@
+--- a/net/minecraft/world/entity/Entity.java
++++ b/net/minecraft/world/entity/Entity.java
+@@ -2504,7 +_,7 @@
+         // Paper end - Raw entity serialization API
+         // CraftBukkit end
+         try {
+-            if (includeAll) { // CraftBukkit - selectively save position
++            if (includeAll || com.legitimoose.lsp.MooseConfig.disableEnderchestSerializationInSelectors) { // CraftBukkit - selectively save position
+             if (this.vehicle != null) {
+                 output.store("Pos", Vec3.CODEC, new Vec3(this.vehicle.getX(), this.getY(), this.vehicle.getZ()));
+             } else {
+@@ -2532,7 +_,7 @@
+             output.putBoolean("Invulnerable", this.invulnerable);
+             output.putInt("PortalCooldown", this.portalCooldown);
+             // CraftBukkit start - selectively save uuid and world
+-            if (includeAll) {
++            if (includeAll || com.legitimoose.lsp.MooseConfig.disableEnderchestSerializationInSelectors) {
+             output.store("UUID", UUIDUtil.CODEC, this.getUUID());
+             // PAIL: Check above UUID reads 1.8 properly, ie: UUIDMost / UUIDLeast
+             output.putLong("WorldUUIDLeast", this.level.getWorld().getUID().getLeastSignificantBits());
