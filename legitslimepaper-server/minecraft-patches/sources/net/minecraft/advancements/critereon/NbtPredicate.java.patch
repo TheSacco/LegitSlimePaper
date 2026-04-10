@@ -1,0 +1,11 @@
+--- a/net/minecraft/advancements/critereon/NbtPredicate.java
++++ b/net/minecraft/advancements/critereon/NbtPredicate.java
+@@ -43,7 +_,7 @@
+         CompoundTag var7;
+         try (ProblemReporter.ScopedCollector scopedCollector = new ProblemReporter.ScopedCollector(entity.problemPath(), LOGGER)) {
+             TagValueOutput tagValueOutput = TagValueOutput.createWithContext(scopedCollector, entity.registryAccess());
+-            entity.saveWithoutId(tagValueOutput);
++            entity.saveWithoutId(tagValueOutput, !com.legitimoose.lsp.MooseConfig.disableEnderchestSerializationInSelectors, false, false); // Moose - Disable enderchest serializing in nbt selectors
+             if (entity instanceof Player player) {
+                 ItemStack selectedItem = player.getInventory().getSelectedItem();
+                 if (!selectedItem.isEmpty()) {
