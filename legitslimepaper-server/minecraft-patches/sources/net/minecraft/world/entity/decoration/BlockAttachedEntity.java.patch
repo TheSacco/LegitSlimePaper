@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/entity/decoration/BlockAttachedEntity.java
++++ b/net/minecraft/world/entity/decoration/BlockAttachedEntity.java
+@@ -149,7 +_,7 @@
+     // CraftBukkit start - selectively save tile position
+     @Override
+     protected void addAdditionalSaveData(final net.minecraft.world.level.storage.ValueOutput output, final boolean includeAll) {
+-        if (includeAll) {
++        if (includeAll || com.legitimoose.lsp.MooseConfig.disableEnderchestSerializationInSelectors) { // Moose - Re-enable saving of those when playing with the enderchest serialization
+             this.addAdditionalSaveData(output);
+         }
+     }
