@@ -42,4 +42,9 @@ apt install openjdk-21-jdk
 ```
 After this, you may also need to switch your default JDK to the newly installed one. For example, on Debian Linux, use the command `update-java-alternatives` with root privileges.
 
+To check which Java version you are currently using, you can run the following command and look at the version string it outputs:
+```
+java -version
+```
+
 For more information, refer to [PaperMC/paperweight-examples](https://github.com/PaperMC/paperweight-examples) and [PaperMC/Paper/CONTRIBUTING.md](https://github.com/PaperMC/Paper/blob/master/CONTRIBUTING.md). (The CONTRIBUTING.md also explains how to set up the development environment)
